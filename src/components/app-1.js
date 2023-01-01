@@ -1,11 +1,14 @@
 import React from "react";
 import Product from "./app-2";
-import './seed'
+import './seed';
 
 
 
 class ProductList extends React.Component {
   render() {
+     const products = window.Seed.products.sort((a, b) => (
+      b.votes - a.votes
+    ));
     const productComponents = window.Seed.products.map((product) => (
       <Product
       key={'product-' + product.id}
