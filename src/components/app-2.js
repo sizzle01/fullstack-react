@@ -3,9 +3,13 @@ import React from "react";
 
 class Product extends React.Component {
 
-  handleUpVote() {
-    this.props.onVote(this.props.id);
+  constructor(props) {
+    super(props);
+    this.handleUpVote = this.handleUpVote.bind(this);
     }
+    handleUpVote() {
+      this.props.onVote(this.props.id);
+      }
     
   render() {
     return (
