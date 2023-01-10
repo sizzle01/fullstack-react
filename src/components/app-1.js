@@ -4,6 +4,7 @@ import './seed';
 
 
 
+
 /* eslint-disable no-param-reassign, operator-assignment */
 
 class ProductList extends React.Component {
@@ -22,25 +23,26 @@ class ProductList extends React.Component {
   }
 
   // Inside `ProductList`
-  handleProductUpVote(productId) {
-    const nextProducts = this.state.products.map((product) => {
-      if (product.id === productId) {
-        return Object.assign({}, product, {
-          votes: product.votes + 1,
-        });
-      } else {
-        return product;
-      }
-    });
-    this.setState({
-      products: nextProducts,
-    });
-  }
+  // handleProductUpVote(productId) {
+  //   const nextProducts = this.state.products.map((product) => {
+  //     if (product.id === productId) {
+  //       return Object.assign({}, product, {
+  //         votes: product.votes + 1,
+  //       });
+  //     } else {
+  //       return product;
+  //     }
+  //   });
+  //   this.setState({
+  //     products: nextProducts,
+  //   });
+  // }
 
   render() {
     const products = this.state.products.sort((a, b) => (
       b.votes - a.votes
     ));
+    
     const productComponents = products.map((product) => (
       <Product
         key={'product-' + product.id}
@@ -63,6 +65,3 @@ class ProductList extends React.Component {
 }
 
 export default ProductList
-
-
-
